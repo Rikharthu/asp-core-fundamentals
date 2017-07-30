@@ -1,0 +1,80 @@
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 1px solid black;
+    }
+</style>
+
+<h1>Dependency Injection Sample</h1>
+
+<h2>Request <b>#@ViewBag.RequestNumber</b></h2>
+
+<p>Observe which of the OperationId values vary within a request, and between requests.</p>
+<ul>
+    <li>Transient objects are always different; a new instance is provided to every controller and every service</li>
+    <li>Scoped objects are the same within a request, but different across different requests</li>
+    <li>Singleton objects are the same for every object and every request (regardless of whether an instance is provided in ConfigureServices)</li>
+</ul>
+
+<h3>Controller Operations</h3>
+<font face="monospace">
+    <table>
+        <tr>
+            <td>Transient 1</td>
+            <td>@ViewBag.FirstTransient.OperationId</td>
+        </tr>
+        <tr>
+            <td>Transient 2</td>
+            <td>@ViewBag.SecondTransient.OperationId</td>
+        </tr>
+        <tr>
+            <td>Scoped 1</td>
+            <td>@ViewBag.FirstScoped.OperationId</td>
+        </tr>
+        <tr>
+            <td>Scoped 2</td>
+            <td>@ViewBag.SecondScoped.OperationId</td>
+        </tr>
+        <tr>
+            <td>Singleton</td>
+            <td>@ViewBag.Singleton.OperationId</td>
+        </tr>
+        <tr>
+            <td>Instance</td>
+            <td>@ViewBag.SingletonInstance.OperationId</td>
+        </tr>
+    </table>
+</font>
+
+<h3>OperationService Operations</h3>
+<font face="monospace">
+    <table>
+        <tr>
+            <td>Transient</td>
+            <td>@ViewBag.Service.TransientOperation.OperationId</td>
+        </tr>
+        <tr>
+            <td>Scoped</td>
+            <td>@ViewBag.Service.ScopedOperation.OperationId</td>
+        </tr>
+        <tr>
+            <td>Singleton</td>
+            <td>@ViewBag.Service.SingletonOperation.OperationId</td>
+        </tr>
+        <tr>
+            <td>Instance</td>
+            <td>@ViewBag.Service.SingletonInstanceOperation.OperationId</td>
+        </tr>
+    </table>
+</font>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+    function myFunction() {
+        alert("I am an alert box!");
+    }
+</script>
